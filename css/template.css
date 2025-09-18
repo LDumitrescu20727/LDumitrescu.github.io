@@ -1,15 +1,21 @@
-:root {
-    --title_bg: #2E2E2E
-}
-
-.text_container {
-    display: inline;
-}
-
-.text_container h1 {
-    background-color: var(--title_bg);
-}
-
 body {
-    background-color:#bebebe;
+    background: rgb(18, 18, 18);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    align-items: center;
+}
+
+.bottom-line {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(178, 178, 178);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 30%;
 }
