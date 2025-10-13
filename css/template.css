@@ -1,0 +1,559 @@
+/* ==============================
+   STRUTTURA BASE
+============================== */
+body {
+  position: relative;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  overflow-x: hidden;
+  z-index: 0;
+  padding-top: 180px; /* spazio sotto header fisso */
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Sfondo sfocato */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../immagini/Body_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.3;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 6px solid #303030; /* più sottile, versione compatta */
+  background-image: url("../immagini/Bricks.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px 20px; /* versione compatta */
+  color: white;
+  z-index: 1000;
+}
+
+h1 {
+  font-size: 2.5rem; /* versione compatta */
+  margin: 0;
+  text-align: center;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000;
+}
+
+/* ==============================
+   MENU INFERIORE HEADER
+============================== */
+.bottom-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  width: 100%;
+  gap: 20px; /* versione compatta */
+  border-top: 3px solid #303030; /* più sottile */
+  margin-top: 30px;
+  padding: 10px 0; /* versione compatta */
+}
+
+.bottom-line h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-line h4 a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem; /* versione compatta */
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 20px; /* versione compatta */
+  background-color: rgba(40, 40, 40, 0.85);
+  border: 2px solid #555;
+  border-radius: 10px;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.bottom-line h4 a:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px #ff1744;
+  background-color: #2c2c2c;
+  color: #ff1744;
+}
+
+.bottom-line h4 a.active {
+  background-color: #ff1744;
+  color: #fff;
+  box-shadow: 0 0 20px #ff1744;
+  transform: translateY(-3px);
+}
+
+h4 {
+  text-shadow: 1px 1px #fff;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border: 2px solid #999;
+  background-color: #aaa;
+  border-radius: 8px;
+}
+
+/* ==============================
+   CONTENUTO PRINCIPALE
+============================== */
+.content {
+  margin-top: 65px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.content h2,
+.content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000;
+}
+
+.content p {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+}
+
+/* ==============================
+   LISTA CARATTERISTICHE
+============================== */
+.characteristics ul {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+}
+
+.characteristics ul li.card {
+  position: relative;
+  background-image: url("../immagini/Bricks.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #444;
+  border-radius: 16px;
+  padding: 30px 40px;
+  color: #ddd;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  width: 48%;
+  min-width: 320px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.characteristics ul li.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.card.left {
+  margin-right: auto;
+}
+
+.card.right {
+  margin-left: auto;
+}
+
+.card.important::before {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px #ff1744;
+}
+
+.card .icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ==============================
+   SOTTOGENERI
+============================== */
+.subgenre-item {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.subgenre-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #666;
+}
+
+.subgenre-item div h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.subgenre-item div p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ==============================
+   GIOCHI
+============================== */
+.games-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* versione unificata per tutte le .games-list */
+}
+
+.game-card {
+  background-color: rgba(20, 20, 20, 0.85);
+  border: 2px solid #444;
+  border-radius: 12px;
+  width: 260px;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff1744;
+}
+
+.game-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #666;
+}
+
+.game-card h3 {
+  color: #fff;
+  margin: 15px 0 10px 0;
+}
+
+.game-card p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* ==============================
+   FORM CONTATTI
+============================== */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(20, 20, 20, 0.85);
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 30px;
+  color: #fff;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background-color: #111;
+  color: #eee;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  background-color: #ff1744;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #ff4569;
+}
+
+/* ==============================
+   CATEGORIE / GAMES CATEGORY
+============================== */
+.games-category {
+  margin: 50px 0;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: rgba(20,20,20,0.8);
+  border: 2px solid #444;
+}
+
+.games-category h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ff1744;
+  text-shadow: 2px 2px #000;
+}
+
+/* Barra categorie normale, scrolla con la pagina */
+.category-menu {
+  background-color: rgba(0,0,0,0.85);
+  padding: 10px 0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.category-menu a {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: transparent; /* nessuna evidenziazione */
+  box-shadow: none;              /* nessuna ombra */
+  color: #fff;                   /* colore uniforme */
+  transition: 
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.category-menu a:hover {
+  background-color: #2c2c2c;
+  color: #ff1744;
+}
+
+
+
+/* ==============================
+   RESPONSIVE DESIGN — VERSIONE MIGLIORATA
+============================== */
+
+/* Tablet grandi / laptop piccoli */
+@media (max-width: 1000px) {
+  body {
+    padding-top: 220px; /* aumenta spazio sotto header fisso */
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .bottom-line h4 a {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+
+  .content {
+    padding: 0 25px;
+  }
+}
+
+/* Tablet verticali / telefoni grandi */
+@media (max-width: 800px) {
+  body {
+    padding-top: 260px; /* più spazio per header su dispositivi verticali */
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bottom-line {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 0;
+  }
+
+  .bottom-line h4 a {
+    font-size: 1rem;
+    width: auto;
+  }
+
+  .content {
+    padding: 0 20px;
+  }
+
+  .games-list {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .game-card {
+    width: 45%;
+  }
+}
+
+/* Smartphone standard (orizzontale o medio) */
+@media (max-width: 600px) {
+  body {
+    padding-top: 290px; /* spazio aggiuntivo per evitare sovrapposizioni */
+  }
+
+  header {
+    padding: 10px 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .bottom-line {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .bottom-line h4 a {
+    width: 90%;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .content {
+    padding: 0 15px;
+  }
+
+  .characteristics ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .characteristics ul li.card {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .games-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .game-card {
+    width: 90%;
+  }
+
+  .subgenre-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .subgenre-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .category-menu {
+    padding: 12px 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .category-menu a {
+    display: inline-block;
+    margin: 5px 8px;
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+}
+
+/* Smartphone molto piccoli (tipo iPhone SE / Galaxy mini) */
+@media (max-width: 450px) {
+  body {
+    padding-top: 330px; /* header alto + menu compatto */
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .bottom-line {
+    gap: 8px;
+  }
+
+  .bottom-line h4 a {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .game-card {
+    width: 95%;
+  }
+
+  .category-menu a {
+    display: block;
+    margin: 6px auto;
+    width: 80%;
+  }
+}
