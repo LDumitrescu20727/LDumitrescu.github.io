@@ -385,10 +385,15 @@ h4 {
   color: #ff1744;
 }
 
+.games-list a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
 
 /* ==============================
-   RESPONSIVE DESIGN — VERSIONE MIGLIORATA
+   RESPONSIVE DESIGN
 ============================== */
 
 /* Tablet grandi / laptop piccoli */
@@ -557,3 +562,4 @@ h4 {
     width: 80%;
   }
 }
+
